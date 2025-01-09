@@ -48,14 +48,14 @@
 
   // Left icon positioning
   &__icon:first-child {
-    left: 0.45rem;  // Adjust these values to center within the circle
+    left: 0.45rem;  
     top: 50%;
     transform: translateY(-50%);
   }
 
   // Right icon positioning
   &__icon:last-child {
-    right: 0.45rem;  // Adjust these values to center within the circle
+    right: 0.45rem; 
     top: 50%;
     transform: translateY(-50%);
   }
