@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import './Button.scss';
+import { FaPlus } from 'react-icons/fa';
 
 export default {
   title: 'Atoms/Button',
@@ -43,3 +44,23 @@ export const Variants = () => (
     <Button variant="danger">Danger</Button>
   </div>
 ); 
+
+export const IconButton = () => (
+  <Button variant="primary" size="small">
+    <FaPlus />
+  </Button>
+);
+
+export const IconButtonRight = () => (
+  <Button variant="primary" size="large">
+    Button
+    <FaPlus />
+  </Button>
+);
+
+export const IconButtonLeft = () => (
+  <Button variant="primary" size="small">
+    <FaPlus />
+    Button
+  </Button>
+);

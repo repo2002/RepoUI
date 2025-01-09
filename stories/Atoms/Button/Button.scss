@@ -9,6 +9,12 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  &__text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 
   // Variants
   &--primary {
