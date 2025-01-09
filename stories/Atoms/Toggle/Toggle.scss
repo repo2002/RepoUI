@@ -1,0 +1,127 @@
+.toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__slider {
+    position: relative;
+    display: inline-block;
+    width: 3.5rem;
+    height: 2rem;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-xl);
+    transition: var(--transition-short);
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 1.5rem;
+      width: 1.5rem;
+      left: 0.25rem;
+      bottom: 0.25rem;
+      background-color: var(--color-white);
+      border-radius: 50%;
+      transition: var(--transition-short);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-md);
+    transition: var(--transition-short);
+  }
+
+  // Left icon positioning
+  &__icon:first-child {
+    left: 0.45rem;  // Adjust these values to center within the circle
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // Right icon positioning
+  &__icon:last-child {
+    right: 0.45rem;  // Adjust these values to center within the circle
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+
+  &__input:checked + &__slider {
+    background-color: var(--color-primary);
+  }
+
+  &__input:checked + &__slider::before {
+    transform: translateX(100%);
+  }
+
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+
+  // Sizes
+  &--small {
+    .toggle__slider {
+      width: 2.5rem;
+      height: 1.5rem;
+
+      &::before {
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+
+    .toggle__icon {
+      font-size: var(--font-size-xs);
+    }
+
+    .toggle__icon:first-child {
+      left: 0.35rem;
+    }
+
+    .toggle__icon:last-child {
+      right: 0.35rem;
+    }
+  }
+
+  &--large {
+    .toggle__slider {
+      width: 4.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-2xl);
+
+      &::before {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    .toggle__icon {
+      font-size: var(--font-size-xl);
+    }
+
+    .toggle__icon:first-child {
+      left: 0.55rem;
+    }
+
+    .toggle__icon:last-child {
+      right: 0.55rem;
+    }
+  }
+} 
