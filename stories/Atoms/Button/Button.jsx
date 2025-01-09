@@ -42,7 +42,7 @@ const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'ghost', 'danger']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'outlined', 'danger']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,

@@ -34,9 +34,9 @@ const Toggle = ({
       />
       <span className="toggle__slider">
         {iconLeft && <span className="toggle__icon">{iconLeft}</span>}
-        {label && <span className="toggle__label">{label}</span>}
         {iconRight && <span className="toggle__icon">{iconRight}</span>}
       </span>
+      <span className="toggle__label">{label}</span>
 
     </label>
   );

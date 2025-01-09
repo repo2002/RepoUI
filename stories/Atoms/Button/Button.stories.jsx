@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import './Button.scss';
-import { FaPlus } from 'react-icons/fa';
+//import { FaPlus } from 'react-icons/fa';
 
 export default {
   title: 'Atoms/Button',
@@ -12,7 +12,7 @@ export default {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'ghost', 'danger'],
+      options: ['primary', 'secondary', 'outlined', 'danger'],
     },
     size: {
       control: 'radio',
@@ -42,11 +42,11 @@ export const Variants = () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
-      <Button variant="ghost">Ghost</Button>
+      <Button variant="outlined">Outlined</Button>
       <Button variant="danger">Danger</Button>
     </div>
 
-    {/* Small Buttons */}
+    {/* Small Buttons
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Button variant="primary" size="small">Small</Button>
       <Button variant="primary" size="small" fullWidth>Small Full Width</Button>
@@ -59,7 +59,7 @@ export const Variants = () => (
       <Button variant="primary" size="small" leftIcon={<FaPlus />} rightIcon={<FaPlus />} fullWidth disabled>Small Icons Full Width Disabled</Button>
     </div>
 
-    {/* Medium Buttons */}
+    {/* Medium Buttons *
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Button variant="primary" size="medium">Medium</Button>
       <Button variant="primary" size="medium" fullWidth>Medium Full Width</Button>
@@ -72,7 +72,7 @@ export const Variants = () => (
       <Button variant="primary" size="medium" leftIcon={<FaPlus />} rightIcon={<FaPlus />} fullWidth disabled>Medium Icons Full Width Disabled</Button>
     </div>
 
-    {/* Large Buttons */}
+    {/* Large Buttons *
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Button variant="primary" size="large">Large</Button>
       <Button variant="primary" size="large" fullWidth>Large Full Width</Button>
@@ -83,7 +83,7 @@ export const Variants = () => (
       <Button variant="primary" size="large" leftIcon={<FaPlus />} rightIcon={<FaPlus />}>Large with Both Icons</Button>
       <Button variant="primary" size="large" leftIcon={<FaPlus />} rightIcon={<FaPlus />} fullWidth>Large Icons Full Width</Button>
       <Button variant="primary" size="large" leftIcon={<FaPlus />} rightIcon={<FaPlus />} fullWidth disabled>Large Icons Full Width Disabled</Button>
-    </div>
+    </div> */}
   </div>
 ); 
 

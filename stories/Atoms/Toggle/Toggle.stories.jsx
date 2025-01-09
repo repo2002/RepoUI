@@ -72,7 +72,7 @@ export const ThemeToggle = () => {
       disabled={false}
       iconLeft={isChecked ? <FaSun color="var(--color-white)" /> : <FaSun color="var(--color-primary)" />}
       iconRight={isChecked ? <FaMoon color="var(--color-primary)" /> : <FaMoon color="var(--color-warning)" />}
-      size="small"
+      label="Theme Toggle"
     />
   );
 }; 

@@ -37,6 +37,13 @@
     }
   }
 
+  &__label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    margin-left: var(--spacing-sm);
+  }
+
   &__icon {
     position: absolute;
     z-index: 1;
