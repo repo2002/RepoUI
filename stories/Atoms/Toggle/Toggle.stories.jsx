@@ -1,8 +1,7 @@
 import React from 'react';
 import Toggle from './Toggle';
-
-// For the example Theme Toggle (below)
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { useTheme } from '../../../hooks/useTheme';
 
 export default {
   title: 'Atoms/Toggle',
@@ -53,25 +52,16 @@ export const Disabled = {
   },
 };
 
-
-
-// Theme toggle example
 export const ThemeToggle = () => {
-  const [isChecked, setIsChecked] = React.useState(false);
-
-  const handleChange = () => {
-    setIsChecked(!isChecked);
-    console.log('Toggle changed:', isChecked);
-  };
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <Toggle
-      checked={isChecked}
-      onChange={handleChange}
+      checked={isDark}
+      onChange={toggleTheme}
       className="theme-toggle"
-      disabled={false}
-      iconLeft={isChecked ? <FaSun color="var(--color-white)" /> : <FaSun color="var(--color-primary)" />}
-      iconRight={isChecked ? <FaMoon color="var(--color-primary)" /> : <FaMoon color="var(--color-warning)" />}
+      iconLeft={<FaSun color={isDark ? 'var(--color-white)' : 'var(--color-primary)'} />}
+      iconRight={<FaMoon color={isDark ? 'var(--color-primary)' : 'var(--color-warning)'} />}
       label="Theme Toggle"
     />
   );

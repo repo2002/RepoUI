@@ -55,6 +55,10 @@ export const H6 = ({ children, ...props }) => (
   <h6 className={getClasses('h6', props)} {...props}>{children}</h6>
 );
 
+export const P = ({ children, ...props }) => (
+  <p className={getClasses('p', props)} {...props}>{children}</p>
+);
+
 export const Subtitle = ({ children, ...props }) => (
   <h6 className={getClasses('subtitle', props)} {...props}>{children}</h6>
 );
@@ -71,6 +75,10 @@ export const Label = ({ children, ...props }) => (
   <label className={getClasses('label', props)} {...props}>{children}</label>
 );
 
+export const Quote = ({ children, ...props }) => (
+  <span className={getClasses('quote', props)} {...props}>{children}</span>
+);
+
 // Add PropTypes to all components
 H1.propTypes = baseProps;
 H2.propTypes = baseProps;
@@ -78,10 +86,12 @@ H3.propTypes = baseProps;
 H4.propTypes = baseProps;
 H5.propTypes = baseProps;
 H6.propTypes = baseProps;
+P.propTypes = baseProps;
 Subtitle.propTypes = baseProps;
 Body.propTypes = baseProps;
 Caption.propTypes = baseProps;
 Label.propTypes = baseProps;
+Quote.propTypes = baseProps;
 
 // Export all components
 export default {
@@ -95,4 +105,6 @@ export default {
   Body,
   Caption,
   Label,
+  Quote,
+  P,
 }; 

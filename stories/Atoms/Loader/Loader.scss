@@ -1,0 +1,127 @@
+.loader {
+  --loader-color: var(--color-primary);
+  --loader-size: 2rem;
+  display: inline-block;
+
+  // Sizes
+  &--small { --loader-size: 1rem; }
+  &--medium { --loader-size: 2rem; }
+  &--large { --loader-size: 3rem; }
+
+  // Spinner
+  &--spinner {
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border: calc(var(--loader-size) * 0.1) solid transparent;
+    border-top-color: var(--loader-color);
+    border-right-color: var(--loader-color);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+
+  // Dots
+  &--dots {
+    display: flex;
+    gap: calc(var(--loader-size) * 0.2);
+
+    &::before,
+    &::after {
+      content: '';
+      width: calc(var(--loader-size) * 0.3);
+      height: calc(var(--loader-size) * 0.3);
+      border-radius: 50%;
+      background-color: var(--loader-color);
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    &::after {
+      animation-delay: 0.5s;
+    }
+  }
+
+  // Pulse
+  &--pulse {
+    width: var(--loader-size);
+    height: var(--loader-size);
+    background-color: var(--loader-color);
+    border-radius: 50%;
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+  // Ring
+  &--ring {
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border: calc(var(--loader-size) * 0.1) solid var(--loader-color);
+    border-radius: 50%;
+    animation: ring 1.5s ease-in-out infinite;
+  }
+
+  // Bar
+  &--bar {
+    width: var(--loader-size);
+    height: calc(var(--loader-size) * 0.1);
+    background-color: var(--loader-color);
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      animation: bar 1s ease-in-out infinite;
+    }
+  }
+
+  // Bars Horizontal
+  &--bars-horizontal {
+    width: var(--loader-size);
+    height: calc(var(--loader-size) * 0.2);
+    aspect-ratio: 4;
+    --c: no-repeat var(--loader-color);
+    background: 
+      var(--c) 0%   50%,
+      var(--c) 50%  50%,
+      var(--c) 100% 50%;
+    background-size: 20% 100%;
+    animation: bars-horizontal 1s infinite ease-in-out;
+  }
+  
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.5); opacity: 0.5; }
+}
+
+@keyframes ring {
+  0% { transform: rotate(0deg); }
+  50% { transform: scale(1.5); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+} 
+
+@keyframes bars-horizontal {
+  0%    { background-size: 20% 100%, 20% 60%, 20% 100%; }
+  20%   { background-size: 20% 60%, 20% 100%, 20% 60%; }
+  40%   { background-size: 20% 100%, 20% 60%, 20% 100%; }
+  60%   { background-size: 20% 60%, 20% 100%, 20% 60%; }
+  80%   { background-size: 20% 100%, 20% 60%, 20% 100%; }
+  100%  { background-size: 20% 60%, 20% 100%, 20% 60%; }
+}
+
+
+
+  

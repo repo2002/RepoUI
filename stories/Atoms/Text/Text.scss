@@ -61,6 +61,19 @@
     line-height: var(--line-height-sm);
     font-weight: var(--font-weight-normal);
   }
+  &--p {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+  } 
+
+  &--quote {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-secondary);
+  }
 
   &--label {
     font-size: var(--font-size-sm);

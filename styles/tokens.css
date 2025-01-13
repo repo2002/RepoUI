@@ -50,6 +50,7 @@
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
 
 
   /* Spacing */
@@ -89,6 +90,7 @@
   --font-weight-bold: 700;
 
   /* Line Heights */
+  --line-height-xs: 1;
   --line-height-sm: 1.25;
   --line-height-base: 1.5;
   --line-height-lg: 1.75;
@@ -102,6 +104,7 @@
   --border-width-sm: 1px;
   --border-width-md: 2px;
   --border-width-lg: 3px;
+
 
 }
 

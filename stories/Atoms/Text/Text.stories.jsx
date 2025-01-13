@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, H2, H3, H4, H5, H6, Subtitle, Body, Caption, Label } from './Text';
+import { H1, H2, H3, H4, H5, H6, Subtitle, Body, Caption, Label, Quote, P } from './Text';
 
 export default {
   title: 'Atoms/Text',
@@ -58,6 +58,8 @@ export const TypographyScale = () => (
     <H4>Heading 4</H4>
     <H5>Heading 5</H5>
     <H6>Heading 6</H6>
+    <Quote>Quote Text</Quote>
+    <P>Paragraph Text</P>
     <Subtitle>Subtitle Text</Subtitle>
     <Body>Body Text</Body>
     <Caption>Caption Text</Caption>

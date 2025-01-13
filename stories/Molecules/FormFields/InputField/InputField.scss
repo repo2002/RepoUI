@@ -1,0 +1,16 @@
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+
+  &__required {
+    color: var(--color-error);
+    margin-left: var(--spacing-xs);
+  }
+
+  &__helper {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+} 

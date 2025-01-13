@@ -11,7 +11,7 @@ export default {
   argTypes: {
     type: {
       control: { type: 'select' },
-      options: ['text', 'password', 'email', 'number', 'search', 'tel', 'url', 'date', 'time', 'datetime-local', 'month', 'week', 'file', 'hidden'],
+      options: ['text', 'password', 'email', 'number', 'search', 'tel', 'url', 'date', 'time', 'datetime-local', 'month', 'week', 'file', 'hidden', 'textarea'],
     },
     disabled: {
       control: { type: 'boolean' },
@@ -31,7 +31,6 @@ export const Default = {
   args: {
     placeholder: 'Enter text...',
     type: 'text',
-    size: 'medium',
   },
 };
 
@@ -61,7 +60,7 @@ export const States = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
     <Input placeholder="Normal input" />
     <Input placeholder="Disabled input" disabled />
-    <Input placeholder="Error input" error="This field is required" />
+    <Input placeholder="Error input" error="This field is required"/>
     <Input placeholder="Success input" success />
   </div>
 );

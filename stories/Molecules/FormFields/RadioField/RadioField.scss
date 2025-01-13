@@ -1,0 +1,27 @@
+.radio-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  &__required {
+    color: var(--color-error);
+    margin-left: var(--spacing-xs);
+  }
+
+  &__helper {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  &__error {
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+  }
+} 

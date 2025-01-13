@@ -1,0 +1,53 @@
+.image {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  // Base styles to prevent CLS (Content Layout Shift)
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+
+  // Shapes
+  &--square {
+    border-radius: O;
+  }
+
+  &--circle {
+    border-radius: 50%;
+  }
+
+  &--rounded {
+    border-radius: var(--radius-xl);
+  }
+
+  // Fit modes
+  &--cover &__img {
+    object-fit: cover;
+  }
+
+  &--contain &__img {
+    object-fit: contain;
+    background-color: var(--color-background-light);
+  }
+
+  &--fill &__img {
+    object-fit: fill;
+  }
+
+
+  // Image element
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform var(--transition-short);
+    backface-visibility: hidden; // Optimize performance
+    transform: translateZ(0); // Force GPU acceleration
+    will-change: transform; // Hint for browser optimization
+  }
+
+}

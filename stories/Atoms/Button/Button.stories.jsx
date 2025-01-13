@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import './Button.scss';
-//import { FaPlus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 
 export default {
   title: 'Atoms/Button',
@@ -46,8 +46,8 @@ export const Variants = () => (
       <Button variant="danger">Danger</Button>
     </div>
 
-    {/* Small Buttons
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    {/* /* Small Buttons */}
+    {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Button variant="primary" size="small">Small</Button>
       <Button variant="primary" size="small" fullWidth>Small Full Width</Button>
       <Button variant="primary" size="small" disabled>Small Disabled</Button>
@@ -57,7 +57,7 @@ export const Variants = () => (
       <Button variant="primary" size="small" leftIcon={<FaPlus />} rightIcon={<FaPlus />}>Small with Both Icons</Button>
       <Button variant="primary" size="small" leftIcon={<FaPlus />} rightIcon={<FaPlus />} fullWidth>Small Icons Full Width</Button>
       <Button variant="primary" size="small" leftIcon={<FaPlus />} rightIcon={<FaPlus />} fullWidth disabled>Small Icons Full Width Disabled</Button>
-    </div>
+    </div> */}
 
     {/* Medium Buttons *
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
