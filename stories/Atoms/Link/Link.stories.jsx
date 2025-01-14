@@ -16,6 +16,9 @@ export default {
     disabled: {
       control: { type: 'boolean' },
     },
+    menu: {
+      control: { type: 'boolean' },
+    },
     external: {
       control: { type: 'boolean' },
     },

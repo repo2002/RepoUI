@@ -33,13 +33,20 @@ export const Required = {
 
 export const Interactive = () => {
   const [value, setValue] = React.useState('');
-
+  const [label, setLabel] = React.useState('');
   return (
+    <>
     <SelectField
       label="Interactive Example"
       value={value}
       onChange={(e) => setValue(e.target.value)}
       helper="Try selecting different options"
+      options={[
+        { value: 'us', label: 'United States' }, 
+        { value: 'uk', label: 'United Kingdom' }, 
+        { value: 'fr', label: 'France' }]}
     />
+    {value && <div>Selected value: {value}</div>}
+</>
   );
 }; 

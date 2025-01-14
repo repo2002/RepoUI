@@ -1,0 +1,212 @@
+.tabs {
+  width: 100%;
+
+  &__list {
+    display: flex;
+    gap: var(--spacing-xs);
+    position: relative;
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    background: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-short);
+    font-family: inherit;
+    position: relative;
+    font-size: var(--font-size-md);
+    
+    // Icon-only tab styling
+    &--icon-only {
+      padding: var(--spacing-sm);
+      
+      .tabs__icon {
+        margin: 0;
+      }
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    &--active {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-medium);
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-md);
+  }
+
+  &__label {
+    display: inline-block;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 var(--spacing-xs);
+    border-radius: var(--radius-full);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
+
+  // Variants
+
+  &--pills {
+    .tabs__tab {
+      border-radius: var(--radius-lg);
+      
+
+      &--active {
+        background: var(--color-primary);
+        color: white;
+      }
+    }
+  }
+
+  &--underlined {
+    border-bottom: var(--border-width-sm) solid var(--color-border);
+
+    .tabs__tab {
+      margin-bottom: calc(var(--border-width-sm) * -1);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-primary);
+        transform: scaleX(0);
+        transition: transform var(--transition-short);
+        transform-origin: center;
+      }
+
+      &--active {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  // Alignment
+  &--center {
+    justify-content: center;
+  }
+
+  &--end {
+    justify-content: flex-end;
+  }
+
+  // Sizes
+  &--sm {
+    .tabs__tab {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  &--lg {
+    .tabs__tab {
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  // Content
+  &__content {
+    margin-top: var(--spacing-md);
+  }
+
+  // Add vertical variant
+  &--vertical {
+    display: flex;
+    gap: var(--spacing-md);
+
+    .tabs__list {
+      flex-direction: column;
+      margin-bottom: 0;
+      margin-right: var(--spacing-md);
+      
+    }
+
+    .tabs__tab {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    // Adjust variants for vertical orientation
+    .tabs--underlined {
+      border-bottom: none;
+      border-right: var(--border-width-sm) solid var(--color-border);
+
+      .tabs__tab {
+        margin-bottom: 0;
+        margin-right: calc(var(--border-width-sm) * -1);
+
+        &::after {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: auto;
+          width: 2px;
+          height: 100%;
+          transform: scaleY(0);
+          transform-origin: center;
+        }
+
+        &--active {
+          &::after {
+            transform: scaleY(1);
+          }
+        }
+      }
+    }
+
+    .tabs__content {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    // Adjust alignments for vertical
+    .tabs--center {
+      align-items: center;
+    }
+
+    .tabs--end {
+      align-items: flex-end;
+    }
+  }
+
+  // Adjust sizes for icon-only tabs
+  &--sm {
+    .tabs__tab--icon-only {
+      padding: var(--spacing-xs);
+    }
+  }
+
+  &--lg {
+    .tabs__tab--icon-only {
+      padding: var(--spacing-md);
+    }
+  }
+} 

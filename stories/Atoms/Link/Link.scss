@@ -13,6 +13,16 @@
     opacity: 0.8;
   }
 
+  &--menu {
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: var(--transition-short);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
   // Sizes
   &--small {
     font-size: var(--font-size-sm);

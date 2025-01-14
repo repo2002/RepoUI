@@ -11,6 +11,7 @@ const Link = ({
   disabled = false,
   external = false,
   underline = true,
+  menu = false,
   className,
   ...props
 }) => {
@@ -19,6 +20,7 @@ const Link = ({
     `link--${size}`,
     underline && 'link--underline',
     disabled && 'link--disabled',
+    menu && 'link--menu',
     className
   ].filter(Boolean).join(' ');
 
@@ -50,6 +52,7 @@ Link.propTypes = {
   disabled: PropTypes.bool,
   external: PropTypes.bool,
   underline: PropTypes.bool,
+  menu: PropTypes.bool,
   className: PropTypes.string,
 };
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../Atoms/Button/Button';
 import './Tabs.scss';
 
 const Tabs = ({
@@ -9,7 +8,10 @@ const Tabs = ({
   onChange,
   variant = 'default',
   alignment = 'start',
+  size = 'md',
+  orientation = 'horizontal',
   className,
+  children,
 }) => {
   const [selectedTab, setSelectedTab] = useState(activeTab || tabs[0]?.id);
 
@@ -19,28 +21,39 @@ const Tabs = ({
   };
 
   return (
-    <div 
-      className={`tabs tabs--${variant} tabs--${alignment} ${className || ''}`}
-      role="tablist"
-    >
-      {tabs.map((tab) => (
-        <Button
-          key={tab.id}
-          variant={selectedTab === tab.id ? 'primary' : 'ghost'}
-          onClick={() => handleTabClick(tab.id)}
-          className="tabs__tab"
-          role="tab"
-          aria-selected={selectedTab === tab.id}
-          aria-controls={`panel-${tab.id}`}
-        >
-          {tab.icon && <Icon name={tab.icon} className="tabs__icon" />}
-          {tab.label}
-          {tab.badge && (
-            <span className="tabs__badge">{tab.badge}</span>
-          )}
-        </Button>
-      ))}
-      <div className="tabs__indicator" />
+    <div className={`tabs ${orientation === 'vertical' ? 'tabs--vertical' : ''} ${className || ''}`}>
+      <div 
+        className={`tabs__list tabs--${variant} tabs--${alignment} tabs--${size}`}
+        role="tablist"
+        aria-orientation={orientation}
+      >
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            className={`tabs__tab ${selectedTab === tab.id ? 'tabs__tab--active' : ''}`}
+            onClick={() => handleTabClick(tab.id)}
+            role="tab"
+            aria-selected={selectedTab === tab.id}
+            aria-controls={`panel-${tab.id}`}
+          >
+            {tab.icon && <span className="tabs__icon">{tab.icon}</span>}
+            {tab.label && <span className="tabs__label">{tab.label}</span>}
+            {tab.badge && <span className="tabs__badge">{tab.badge}</span>}
+          </button>
+        ))}
+      </div>
+      <div className="tabs__content">
+        {React.Children.map(children, (child) => {
+          if (!React.isValidElement(child)) return null;
+          
+          return React.cloneElement(child, {
+            role: 'tabpanel',
+            id: `panel-${child.props['data-tab-id']}`,
+            'aria-labelledby': child.props['data-tab-id'],
+            hidden: child.props['data-tab-id'] !== selectedTab,
+          });
+        })}
+      </div>
     </div>
   );
 };
@@ -48,15 +61,19 @@ const Tabs = ({
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.string,
+    label: PropTypes.string,
+    icon: PropTypes.node,
     badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  })).isRequired,
+    ariaLabel: PropTypes.string,
+  })),
   activeTab: PropTypes.string,
   onChange: PropTypes.func,
   variant: PropTypes.oneOf(['default', 'pills', 'underlined']),
   alignment: PropTypes.oneOf(['start', 'center', 'end']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
-export default Tabs; 
+export default Tabs;

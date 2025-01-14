@@ -1,85 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Toast from './Toast';
+import { H4, P } from '../../Atoms/Text/Text';
+import Link from '../../Atoms/Link/Link';
 
 export default {
   title: 'Molecules/Toast',
   component: Toast,
   parameters: {
-    layout: 'centered',
-  },
-  args: {
-    title: 'Notification',
-    message: 'This is a default toast message',
-    type: 'info',
-    duration: 5000,
+    layout: 'padded',
   },
   argTypes: {
     type: {
-      control: 'select',
+      control: { type: 'select' },
       options: ['info', 'success', 'warning', 'error'],
     },
-    duration: {
-      control: 'number',
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
     },
+    duration: {
+        control: { type: 'number' },
+    }
   },
 };
 
-export const Default = {};
-
-export const SimpleExample = {
-  args: {
-    type: 'success',
-    title: 'File Uploaded',
-    message: 'document.pdf has been uploaded successfully.',
-    duration: 3000,
-    tags: [
-      { children: 'PDF', variant: 'secondary' },
-      { children: '2.5MB', variant: 'info' }
-    ],
-    action: () => alert('View file clicked'),
-    actionLabel: 'View File'
-  },
+const handleClose = () => {
+  console.log('close');
+  const toast = document.querySelector('.toast');
+  if (toast) {
+    const duration = parseInt(toast.getAttribute('data-duration')) || 0;
+    if (duration === 0 || toast.querySelector('.toast__close')) {
+      toast.remove();
+    }
+  }
 };
 
-export const ComplexExample = {
+export const Default = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-      <Toast
-        type="error"
-        title="Deploy Failed"
-        message="The deployment to production failed due to build errors."
-        duration={3000}
-        tags={[
-          { children: 'Production', variant: 'error' },
-          { children: 'Deploy', variant: 'secondary' },
-          { children: 'CI/CD', variant: 'info' }
-        ]}
-        action={() => alert('View logs clicked')}
-        actionLabel="View Logs"
-      />
-      <Toast
-        type="warning"
-        title="Database Performance"
-        message="High latency detected in database queries"
-        tags={[
-          { children: 'Database', variant: 'warning' },
-          { children: 'Performance', variant: 'secondary' }
-        ]}
-        action={() => alert('View metrics clicked')}
-        actionLabel="View Metrics"
-      />
-      <Toast
-        type="success"
-        title="Backup Completed"
-        message="Weekly backup completed successfully"
-        tags={[
-          { children: 'Backup', variant: 'success' },
-          { children: 'Weekly', variant: 'secondary' },
-          { children: '1.2GB', variant: 'info' }
-        ]}
-        action={() => alert('View details clicked')}
-        actionLabel="View Details"
-      />
-    </div>
-  ),
+    <Toast type="info" onClose>
+      <H4 color="info" weight="bold">Simple Notification</H4>
+      <P>This is a basic toast message</P>
+    </Toast>
+  )
+};
+
+export const WithLink = {
+  render: () => (
+    <Toast type="success" onClose={handleClose}>
+      <H4 color="success" size="lg" weight="bold">Files Uploaded</H4>
+      <P>Your files have been uploaded. <Link href="#">View files</Link></P>
+    </Toast>
+  )
+};
+
+
+export const ExpandableToast = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <Toast type="info" onClose size="large"> 
+      <div>
+        <H4 color="info" size="lg" weight="bold">Update Available</H4>
+        <P>A new version is available with these changes:</P>
+        <div className={`toast__content-expandable ${isExpanded ? 'expanded' : ''}`}>
+          <ul>
+            <li>Improved performance with new caching system</li>
+            <li>Bug fixes for mobile responsiveness</li>
+            <li>New features including dark mode support</li>
+            <li>Enhanced security measures</li>
+            <li>Better accessibility support</li>
+            <li>Updated documentation</li>
+          </ul>
+        </div>
+        <button 
+          className="toast__expand-button"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          {isExpanded ? 'Show Less' : 'Read More'}
+        </button>
+        <Link href="#">Update now</Link>
+      </div>
+    </Toast>
+  );
 }; 

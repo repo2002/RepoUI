@@ -1,20 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../../Atoms/Inputfields/Inputfield';
-import Button from '../../../Atoms/Button/Button';
-import Icon from '../../Atoms/Icon/Icon';
+import InputField from '../../../Atoms/Inputfields/Inputfield';
+
 import './SearchBar.scss';
 
 const SearchBar = ({
+  placeholder = 'Search...',
   value,
   onChange,
   onSubmit,
-  placeholder = 'Search...',
-  variant = 'default',
-  showButton = true,
-  clearable = true,
-  loading = false,
+  size = 'md',
   className,
+  icon,
+  children,
   ...props
 }) => {
   const handleSubmit = (e) => {
@@ -22,60 +20,34 @@ const SearchBar = ({
     onSubmit?.(value);
   };
 
-  const handleClear = () => {
-    onChange?.('');
-  };
-
   return (
     <form 
-      className={`search-bar search-bar--${variant} ${className || ''}`}
+      className={`search-bar search-bar--${size} ${className || ''}`}
       onSubmit={handleSubmit}
-      role="search"
+      {...props}
     >
-      <div className="search-bar__input-wrapper">
-        <Icon name="search" className="search-bar__icon" />
-        <Input
-          type="search"
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          className="search-bar__input"
-          {...props}
-        />
-        {clearable && value && (
-          <Button
-            variant="ghost"
-            icon="close"
-            onClick={handleClear}
-            className="search-bar__clear"
-            aria-label="Clear search"
-          />
-        )}
-      </div>
-      
-      {showButton && (
-        <Button 
-          type="submit"
-          loading={loading}
-          className="search-bar__submit"
-        >
-          Search
-        </Button>
-      )}
+      <InputField
+        type="search"
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        size={size}
+        icon={icon}
+      />
+      {children}
     </form>
   );
 };
 
 SearchBar.propTypes = {
+  placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
-  placeholder: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'minimal', 'prominent']),
-  showButton: PropTypes.bool,
-  clearable: PropTypes.bool,
-  loading: PropTypes.bool,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   className: PropTypes.string,
+  icon: PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default SearchBar; 

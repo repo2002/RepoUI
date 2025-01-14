@@ -18,7 +18,7 @@ export default {
     },
     color: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'success', 'error', 'warning', 'text-primary', 'text-secondary'],
+      options: ['primary', 'secondary', 'success', 'error', 'warning', 'text-primary', 'text-secondary', 'info', 'danger'],
     },
     animation: {
       control: { type: 'select' },
