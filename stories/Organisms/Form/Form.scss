@@ -22,9 +22,9 @@
 
   &--small {
     width: 400px;
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     .form__fields, .form__actions {
-        width: 90%;
+        
         margin: var(--spacing-md) auto;
     }
     .form__fields-row {
@@ -67,7 +67,8 @@
   }
 
   &__actions {
-    margin-top: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    
   }
 
 } 
