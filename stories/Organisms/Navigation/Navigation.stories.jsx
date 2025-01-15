@@ -12,7 +12,7 @@ export default {
   },
   argTypes: {
     variant: {
-      options: ['horizontal', 'vertical', 'horizontal-floating', 'vertical-floating'],
+      options: ['horizontal', 'vertical'],
       control: { type: 'radio' },
     },
     floating: {
@@ -27,7 +27,7 @@ const Logo = () => (
 
 export const Default = () => {
   return (
-    <Navigation variant="vertical" floating={true}>
+    <Navigation variant="horizontal" floating={false}>
         <div className='navigation__container'>
             <div className='navigation__logo'>
                 <Logo />

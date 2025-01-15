@@ -1,17 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../Atoms/Button/Button';
+import { P } from '../../Atoms/Text/Text';
 import './Form.scss';
 
 const Form = ({ 
-  title,
-  subtitle,
-  submitText = 'Submit',
-  onSubmit,
-  className,
   children,
+  submitText = 'Submit',
+  submitIcon,
+  variant = 'default',
+  error,
+  onSubmit,
+  method,
+  className,
   ...props 
 }) => {
+    const formClasses = [
+        'form',
+        variant && `form--container-${variant}`,
+        className
+    ].filter(Boolean).join(' ');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit?.(e);
@@ -19,35 +28,36 @@ const Form = ({
 
   return (
     <form 
-      className={`form ${className || ''}`} 
+      className={formClasses}
       onSubmit={handleSubmit}
+      method={method}
       {...props}
     >
-      {(title || subtitle) && (
-        <div className="form__header">
-          {title && <h2 className="form__title">{title}</h2>}
-          {subtitle && <p className="form__subtitle">{subtitle}</p>}
+      {children}
+      
+      {error && (
+        <div className="form__error">
+          <P color="danger" size="sm">{error}</P>
         </div>
       )}
-      
-      <div className="form__fields">
-        {children}
-      </div>
 
       <div className="form__actions">
-        <Button type="submit" variant="primary" fullWidth={true}>{submitText}</Button>
+        <Button type="submit" variant='primary' fullWidth rightIcon={submitIcon}>
+          {submitText}
+        </Button>
       </div>
     </form>
   );
 };
 
 Form.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  submitText: PropTypes.string,
-  onSubmit: PropTypes.func,
-  className: PropTypes.string,
   children: PropTypes.node,
+  submitText: PropTypes.string,
+  submitIcon: PropTypes.node,
+  variant: PropTypes.string,
+  error: PropTypes.string,
+  onSubmit: PropTypes.func,
+  method: PropTypes.string,
 };
 
 export default Form; 

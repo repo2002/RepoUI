@@ -1,11 +1,52 @@
-.form {
-  width: 100%;
-  max-width: 480px;
-  padding: var(--spacing-xl);
+.form-container {
+  width: 600px;
+  padding: var(--spacing-lg);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 
+  &--default {
+    width: 600px;
+    padding: var(--spacing-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    .form__fields-row {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
+  }
+
+  &--small {
+    width: 400px;
+    padding: var(--spacing-md);
+    .form__fields, .form__actions {
+        width: 90%;
+        margin: var(--spacing-md) auto;
+    }
+    .form__fields-row {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+  }
+
+  &--large {
+    width: 800px;
+    padding: var(--spacing-xl);
+    .form__fields-row {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
+  }
+}
+
+.form {
   &__header {
     margin-bottom: var(--spacing-xl);
     text-align: center;
@@ -18,11 +59,6 @@
     margin-bottom: var(--spacing-xs);
   }
 
-  &__subtitle {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
-  }
-
   &__fields {
     display: flex;
     flex-direction: column;
@@ -31,8 +67,7 @@
   }
 
   &__actions {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
   }
+
 } 
