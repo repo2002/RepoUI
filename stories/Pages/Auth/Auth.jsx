@@ -68,7 +68,7 @@ export const Auth = () => {
                         
                         <div data-tab-id="login">
                             <div className="auth-page__tabs-content">
-                                <LoginForm variant="large" />
+                                <LoginForm variant="large" border={true}/>
                             </div>
                         </div>
                         

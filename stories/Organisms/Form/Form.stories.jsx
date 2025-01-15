@@ -14,6 +14,9 @@ export default {
             control: { type: 'select' },
             options: ['default', 'small', 'large'],
         },
+        border: {
+            control: { type: 'boolean' },
+        },
     },
 };
 

@@ -4,9 +4,9 @@ import InputField from '../../../Molecules/FormFields/InputField/InputField';
 import { P, H2 } from '../../../Atoms/Text/Text';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 
-const LoginForm = ({ onSubmit, error, variant = 'small' }) => {
+const LoginForm = ({ onSubmit, error, variant = 'small', border }) => {
     return (
-        <div className={`form-container form-container--${variant}`}>
+        <div className={`form-container form-container--${variant} form-container--${border}`}>
             <div className="form__header">
                 <H2>Welcome back</H2>
                 <P>Enter your credentials to continue</P>
@@ -17,6 +17,7 @@ const LoginForm = ({ onSubmit, error, variant = 'small' }) => {
             onSubmit={onSubmit}
             error={error}
             variant={variant}
+            
         >
             <div className="form__fields">
                 <InputField

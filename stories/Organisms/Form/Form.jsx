@@ -10,6 +10,7 @@ const Form = ({
   submitIcon,
   variant = 'default',
   error,
+  border,
   onSubmit,
   method,
   className,
@@ -18,6 +19,7 @@ const Form = ({
     const formClasses = [
         'form',
         variant && `form--container-${variant}`,
+        border && `form--container-${border}`,
         className
     ].filter(Boolean).join(' ');
 
@@ -53,6 +55,7 @@ const Form = ({
 Form.propTypes = {
   children: PropTypes.node,
   submitText: PropTypes.string,
+  border: PropTypes.bool,
   submitIcon: PropTypes.node,
   variant: PropTypes.string,
   error: PropTypes.string,
